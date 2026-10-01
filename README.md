@@ -23,11 +23,15 @@ python prime_algorithm.py
 
 ## 📈 Scientific Conclusion
 This project experimentally demonstrates that prime numbers behave as "isolated islands" that cannot be captured by a single, rigid arithmetic formula. However, combining generative formulas with dynamic verification control loops (*Feedback Loops*) offers excellent computational filtering. This project independently rediscovers the principles of **Wheel Factorization** which are widely utilized in modern cyber security and cryptography.
+markdown
 ## 📊 Algorithm Performance
-When executed, the self-feeding mechanism ensures 100% precision by accurately capturing isolated primes that pure multiplication families skip. Here is a brief look at the sequence generation:
+
+When executed at different scales, the self-feeding mechanism delivers the following experimental results:
+
 * **Initial Input Base:** `[2, 3, 5]`
-* **Prime Numbers Successfully Captured:** 100% of all primes up to 100 (including challenging ones like 29, 41, 43, and 47).
-* **Behavior at Scale:** As numbers grow, the automated gap control seamlessly tracks the shifting density of primes, eliminating any possibility of sequence corruption.
+* **100% Accuracy Range:** The algorithm captures **100% of all prime numbers sequentially up to 53** without a single miss (successfully solving previous failure points like 29, 41, 43, and 47).
+* **First Mathematical Boundary:** The first skipped prime occurs at **59**. 
+* **Behavior at Scale:** Beyond 53, the rapid exponential growth of the multiplication step (`p1 * p2`) outpaces the dynamic gap check, creating isolated zones where highly separated primes (like 59) are bypassed. This perfectly demonstrates the chaotic nature of prime number distribution.
 * ## 🤝 Contributing
 This is an open-ended research project! If you want to optimize the performance or test different generative variants (e.g., experimenting with larger initial bases or different modular constraints), feel free to:
 1. Fork this repository.
