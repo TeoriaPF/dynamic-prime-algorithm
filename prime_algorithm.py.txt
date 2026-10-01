@@ -1,0 +1,66 @@
+python
+"""
+Dynamic Modulo Algorithm for Prime Number Generation
+Author: [Your Name]
+Description: A hybrid self-feeding algorithm (feedback loop) that combines 
+             prime pair multiplication and modular arithmetic.
+"""
+
+def is_prime(n):
+    """Checks if a number is prime using the square root method."""
+    if n < 2: return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0: return False
+    return True
+
+def generate_prime_sequence(family_limit=100):
+    # Initial base array (hybrid base)
+    B = [2, 3, 5]
+    i = 0
+
+    print(f"Starting algorithm with initial base: {B}\n")
+
+    while i < family_limit:
+        p1 = B[i]
+        
+        # AUTOMATIC GAP CONTROL (GAP CHECK)
+        # Scans and fills in any prime numbers skipped by the multiplication formula
+        check_value = p1 + 1
+        if i + 1 < len(B):
+            while check_value < B[i+1]:
+                if is_prime(check_value) and check_value not in B:
+                    B.append(check_value)
+                    B.sort()
+                check_value += 1
+
+        # Calculate the dynamic distance (Prime Gap)
+        next_p2 = B[i+1]
+        d = next_p2 - p1
+        
+        # Execute the hybrid formula: (p1 * p2) +/- d
+        current_elements = list(B)
+        for j in range(i + 1, len(current_elements)):
+            p2 = current_elements[j]
+            
+            product = p1 * p2
+            n1 = product - d
+            n2 = product + d
+            
+            found_new_prime = False
+            if is_prime(n1) and n1 not in B:
+                B.append(n1)
+                found_new_prime = True
+            if is_prime(n2) and n2 not in B:
+                B.append(n2)
+                found_new_prime = True
+                
+            # Re-sort the list to maintain accurate dynamic gaps
+            if found_new_prime:
+                B.sort()
+                
+        i += 1
+    return B
+
+if __name__ == "__main__":
+    final_sequence = generate_prime_sequence(30)
+    print(f"\nGenerated prime numbers (First 50):\n{final_sequence[:50]}")
