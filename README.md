@@ -22,7 +22,7 @@ python prime_algorithm.py
 ```
 
 ## 📈 Scientific Conclusion
-This project experimentally demonstrates that prime numbers behave as "isolated i
+This project experimentally demonstrates that prime numbers behave as "isolated islands" that cannot be captured by a single, rigid arithmetic formula. However, combining generative formulas with dynamic verification control loops (*Feedback Loops*) offers excellent computational filtering. This project independently rediscovers the principles of **Wheel Factorization** which are widely utilized in modern cyber security and cryptography.
 ## 📊 Algorithm Performance
 When executed, the self-feeding mechanism ensures 100% precision by accurately capturing isolated primes that pure multiplication families skip. Here is a brief look at the sequence generation:
 * **Initial Input Base:** `[2, 3, 5]`
